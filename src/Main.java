@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -7,54 +9,14 @@ public class Main {
     static Scanner scanner = new Scanner(System.in);
     static String[] writers;
     static Editorial editorial = new Editorial();
+
     public static void main(String[] args) {
+        showMainMenu();
 
-        int select = -1;
-        int num1 = 0, num2 = 0;
+    }
 
-        while(select != 0){
-            System.out.println("Opcions:");
-            System.out.println("1-Introduir redactor");
-            System.out.println("2-Eliminar redactor.");
-            System.out.println("3-Introduir notícia a un redactor.");
-            System.out.println("4-Eliminar notícia (ha de demanar redactor i titular de la notícia).");
-            System.out.println("5-Mostrar totes les notícies per redactor.");
-            System.out.println("6-Calcular puntuació de la notícia.");
-            System.out.println("7-Calcular preu-notícia.");
-            System.out.println("0-Finalitzar.");
+    private static void showMainMenu(){
 
-            select = Integer.parseInt(scanner.nextLine());
-
-            switch (select){
-                case 1:
-                    addNewWriter();
-                    break;
-                case 2:
-                    deleteWriter();
-                    break;
-                case 3:
-                    addNewsToWriter();
-                    break;
-                case 4:
-                    //
-                    break;
-                case 5:
-                    //
-                    break;
-                case 6:
-                    //
-                    break;
-                case 7:
-                    //
-                    break;
-                case 0:
-                    //
-                    break;
-                default:
-                    //
-                    break;
-            }
-        }
     }
 
     private static void addNewWriter(){
@@ -63,7 +25,7 @@ public class Main {
         System.out.println("DNI?");
         String dni = scanner.nextLine();
 
-        editorial.addNewWriter(new Writer(name, dni));
+        //editorial.addNewWriter(new Writer(name, dni));
     }
 
     private static void deleteWriter(){
@@ -77,8 +39,9 @@ public class Main {
     }
 
     private static void addNewsToWriter(){
-        System.out.println("Titular?");
-        String headline = scanner.nextLine();
+        System.out.println("Tipo de noticia?");
+        //int headline = scanner.nextLine();
+
         System.out.println("Text?");
         String text = scanner.nextLine();
         System.out.println("Puntuació?");
@@ -86,6 +49,32 @@ public class Main {
         System.out.println("Preu?");
         String price = scanner.nextLine();
 
+    }
 
+    private static void selectTypeOfNews(){
+        System.out.println("Tipo de noticia?");
+        for (News.Sports item : Arrays.asList(News.Sports.values())) {
+            System.out.println(item);
+        }
+        int select = Integer.parseInt(scanner.nextLine());
+
+        switch (select){
+            case 0:
+                //
+                break;
+            case 1:
+                //
+                break;
+            case 2:
+                //
+                break;
+            case 3:
+                //
+                break;
+            case 4:
+                //
+                break;
+
+        }
     }
 }
