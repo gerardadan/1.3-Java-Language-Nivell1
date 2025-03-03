@@ -3,8 +3,8 @@ public class Writer extends Employee {
     final String dni;
     static final double salary = 15000;
 
-    public Writer(String dni){
-        super();
+    public Writer(String name, String dni){
+        this.name = name;
         this.dni = dni;
     }
 

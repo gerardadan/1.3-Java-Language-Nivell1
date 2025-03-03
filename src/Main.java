@@ -12,27 +12,17 @@ public class Main {
 
     public static void main(String[] args) {
         showMainMenu();
-
     }
 
     private static void showMainMenu(){
-
-    }
-
-    private static void addNewWriter(){
-        System.out.println("Name?");
-        String name = scanner.nextLine();
-        System.out.println("DNI?");
-        String dni = scanner.nextLine();
-
-        //editorial.addNewWriter(new Writer(name, dni));
+        new MainMenu().showMenu();
     }
 
     private static void deleteWriter(){
         int select = -1;
 
         System.out.println("Selecciona el redactor que quieres eliminar:");
-        editorial.showWriters();
+        //editorial.showWriters();
         select = Integer.parseInt(scanner.nextLine());
 
         editorial.deleteWriter(select);

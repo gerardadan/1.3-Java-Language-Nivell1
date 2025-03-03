@@ -7,10 +7,15 @@ public class Editorial {
         writers = new ArrayList<Writer>();
     }
 
-    public void showWriters(){
+    public ArrayList<String> getWritersStringList(){
+
+        ArrayList<String> writerList = new ArrayList<String>();
         for(Writer item : writers){
-            System.out.println(writers.indexOf(item) + "-> " + item.name + " - " + item.dni);
+            writerList.add(writers.indexOf(item) + "-> " + item.name + " - " + item.dni);
+            //System.out.println(writers.indexOf(item) + "-> " + item.name + " - " + item.dni);
         }
+
+        return writerList;
     }
 
     public boolean addNewWriter(Writer writer){

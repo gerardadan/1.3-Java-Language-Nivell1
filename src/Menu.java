@@ -1,33 +1,24 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 
-public abstract class Menu {
+abstract class Menu {
+    protected static Scanner scanner = new Scanner(System.in);
     static String title;
     static ArrayList<String> options = new ArrayList<String>();
 
-/*
-    public static Menu(String title, ArrayList<String> options) {
-        this.title = title;
-        this.options = options;
-        showMenuOptions(title, options);
-    }
-*/
+    protected abstract void selectOptionMenu(int select);
 
-    public abstract void selectOptionMenu(int select);
-    public abstract void setMenuOptions();
-
-    public static int showMenuOptions(String title, ArrayList<String> options){
-        Scanner scanner = new Scanner(System.in);
+    protected static int showMenuOptions(String title, ArrayList<String> options){
         int select;
         do{
             System.out.println(title);
+
             for(int i = 0; i< options.size(); i++){
                 System.out.println(i + "- " + options.get(i));
             }
-
-            if(!scanner.hasNextInt())
+            if(!scanner.hasNextInt()) {
                 showMenuOptions(title, options);
-
+            }
             select = Integer.parseInt(scanner.nextLine());
         } while (!checkIfOptionValueIsCorrect(select));
 
@@ -37,4 +28,13 @@ public abstract class Menu {
     private static boolean checkIfOptionValueIsCorrect(int select){
         return select >= 0 && select <= options.size();
     }
+
+
+/*
+    public static Menu(String title, ArrayList<String> options) {
+        this.title = title;
+        this.options = options;
+        showMenuOptions(title, options);
+    }
+*/
 }
