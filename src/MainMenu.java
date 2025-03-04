@@ -3,9 +3,10 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class MainMenu extends Menu{
-    static Editorial editorial = new Editorial();
-    static final String title = "Opciones:";
-    static final ArrayList<String> options = new ArrayList<>(Arrays.asList(
+    protected Editorial editorial;
+    private EditorialMenu editorialMenu;
+    private static final String title = "Opciones:";
+    private static final ArrayList<String> options = new ArrayList<>(Arrays.asList(
             "Introduir redactor",
             "Eliminar redactor.",
             "Introduir notícia a un redactor.",
@@ -16,11 +17,12 @@ public class MainMenu extends Menu{
             "Finalitzar."
     ));
 
-    public MainMenu(){
-        selectOptionMenu(Menu.showMenuOptions(title, options));
+    public MainMenu(Editorial editorial){
+        this.editorial = editorial;
     }
 
     public void showMenu(){
+        this.editorialMenu = new EditorialMenu();
         selectOptionMenu(Menu.showMenuOptions(title, options));
     }
 
@@ -28,13 +30,13 @@ public class MainMenu extends Menu{
     protected void selectOptionMenu(int select){
         switch (select){
             case 0:
-                EditorialMenu.addNewWriter(editorial);
+                editorialMenu.addNewWriter(this.editorial);
                 break;
             case 1:
-                //deleteWriter();
+                editorialMenu.deleteWriter(this.editorial);
                 break;
             case 2:
-                //addNewsToWriter();
+                editorialMenu.addNewsToWriter();
                 break;
             case 3:
                 //
@@ -57,16 +59,5 @@ public class MainMenu extends Menu{
         }
         showMenu();
     }
-
-    /*
-    private static void addNewWriter(){
-        System.out.println("Name?");
-        String name = scanner.nextLine();
-        System.out.println("DNI?");
-        String dni = scanner.nextLine();
-
-        //editorial.addNewWriter(new Writer(name, dni));
-    }
-*/
 
 }

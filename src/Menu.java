@@ -9,6 +9,9 @@ abstract class Menu {
     protected abstract void selectOptionMenu(int select);
 
     protected static int showMenuOptions(String title, ArrayList<String> options){
+        if(options.size() <= 0)
+            return 0;
+
         int select;
         do{
             System.out.println(title);
@@ -20,13 +23,13 @@ abstract class Menu {
                 showMenuOptions(title, options);
             }
             select = Integer.parseInt(scanner.nextLine());
-        } while (!checkIfOptionValueIsCorrect(select));
+        } while (!checkIfOptionValueIsCorrect(select, options.size()));
 
         return  select;
     }
 
-    private static boolean checkIfOptionValueIsCorrect(int select){
-        return select >= 0 && select <= options.size();
+    private static boolean checkIfOptionValueIsCorrect(int select, int maxRange){
+        return select >= 0 && select <= maxRange;
     }
 
 

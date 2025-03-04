@@ -11,14 +11,6 @@ public abstract class News {
         this.price = price;
     }
 */
-    enum Sports {
-        FOOTBALL,
-        BASKETBALL,
-        TENNIS,
-        F1,
-        MOTORCYCLING
-    }
-
     public abstract double calculatePriceNews();
 
 }

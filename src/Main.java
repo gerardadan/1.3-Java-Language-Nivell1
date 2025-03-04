@@ -7,17 +7,17 @@ import java.util.Scanner;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     static Scanner scanner = new Scanner(System.in);
-    static String[] writers;
-    static Editorial editorial = new Editorial();
 
     public static void main(String[] args) {
-        showMainMenu();
+        Editorial editorial = new Editorial();
+        showMainMenu(editorial);
+    }
+    private static void showMainMenu(Editorial editorial){
+        MainMenu mainMenu =  new MainMenu(editorial);
+        mainMenu.showMenu();
     }
 
-    private static void showMainMenu(){
-        new MainMenu().showMenu();
-    }
-
+    /*
     private static void deleteWriter(){
         int select = -1;
 
@@ -67,4 +67,7 @@ public class Main {
 
         }
     }
+
+    */
+
 }

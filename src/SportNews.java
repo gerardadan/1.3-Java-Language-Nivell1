@@ -7,8 +7,12 @@ public class SportNews extends News{
         super(headline, text, score, price);
     }
 */
-    enum sportsTypes{
-        Football;
+    enum Sports {
+        FOOTBALL,
+        BASKETBALL,
+        TENNIS,
+        F1,
+        MOTORCYCLING
     }
 
     @Override
