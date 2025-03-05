@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 abstract class Menu {
     protected static Scanner scanner = new Scanner(System.in);
-    static String title;
+    private static String title;
     static ArrayList<String> options = new ArrayList<String>();
 
     protected abstract void selectOptionMenu(int select);
@@ -32,12 +32,4 @@ abstract class Menu {
         return select >= 0 && select <= maxRange;
     }
 
-
-/*
-    public static Menu(String title, ArrayList<String> options) {
-        this.title = title;
-        this.options = options;
-        showMenuOptions(title, options);
-    }
-*/
 }

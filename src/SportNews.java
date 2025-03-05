@@ -2,17 +2,13 @@ public class SportNews extends News{
     String competition;
     String team;
     String player;
-/*
-    public SportNews(String headline, String text, double score, double price) {
-        super(headline, text, score, price);
+
+    public SportNews(String title, double score, double price) {
+        super(title, score, price);
     }
-*/
-    enum Sports {
-        FOOTBALL,
-        BASKETBALL,
-        TENNIS,
-        F1,
-        MOTORCYCLING
+
+    public void setNewsText(String text){
+        this.text = text;
     }
 
     @Override

@@ -1,16 +1,18 @@
 public abstract class News {
-    String headline;
-    String text;
-    double score;
-    double price;
-/*
-    public News(String headline, String text, double score, double price) {
-        this.headline = headline;
-        this.text = text;
+    private String title;
+    protected String text;
+    private double score;
+    private double price;
+
+    public News(String title, double score, double price) {
+        this.title = title;
+        this.text = null;
         this.score = score;
         this.price = price;
     }
-*/
+
+    public abstract void setNewsText(String text);
+
     public abstract double calculatePriceNews();
 
 }

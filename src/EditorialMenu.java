@@ -6,17 +6,22 @@ public class EditorialMenu extends Menu{
     String addNewsToWriter(){
         String resultMessage = "";
         try{
-            selectTypeOfNews();
-            //int headline = scanner.nextLine();
-
+            System.out.println("Titular?");
+            String title = scanner.nextLine();
             System.out.println("Text?");
             String text = scanner.nextLine();
             System.out.println("Puntuació?");
-            String score = scanner.nextLine();
+            double score = Double.parseDouble(scanner.nextLine());
             System.out.println("Preu?");
-            String price = scanner.nextLine();
-        } catch (Exception e){
+            double price = Double.parseDouble(scanner.nextLine());
+            selectTypeOfNews();
 
+            SportNews news = new SportNews(title, score, price);
+            news.setNewsText(text);
+
+            resultMessage = "Se ha creado correctamente una nueva noticia";
+        } catch (Exception e){
+            resultMessage = "Error Add News";
         }
 
         return resultMessage;
@@ -24,7 +29,7 @@ public class EditorialMenu extends Menu{
 
     void selectTypeOfNews(){
         String title = "Tipo de noticia?";
-        Menu.showMenuOptions(title, NEWS_SECTION.convertEnumToStringArrayList());
+        Menu.showMenuOptions(title, NewsSections.convertEnumToStringArrayList());
         int select = Integer.parseInt(scanner.nextLine());
 
         switch (select){
@@ -83,7 +88,7 @@ public class EditorialMenu extends Menu{
         ArrayList<Writer> writers = editorial.getWritersStringList();
         ArrayList<String> writerList = new ArrayList<String>();
         for(Writer item : writers){
-            writerList.add(item.name + " - " + item.dni);
+            writerList.add(item.getName() + " - " + item.getDni());
         }
 
         return writerList;
